@@ -12,5 +12,45 @@ $(document).ready(function(){
         startDelay:1000,
         showCursor:false
     });
+
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        items:4,             
+        responsive:{
+            0:{
+                items:1
+            },
+            480:{
+                items:3
+            },
+            768:{
+                items:5
+            },
+            938:{
+                items:5
+            }
+        }
+    })
+
+   
+
+
+    var skillsTopOffset = $(".skillSection").offset().top;
+
+    $(window).scroll(function(){
+        if(window.pageYOffset > skillsTopOffset - $(window).height() - 100 ){
+            $('.chart').easyPieChart({
+                easing:'easeInOut',
+                barColor: '#fff', 
+                trackColor:false,
+                scaleColor:false,
+                lineWidth:4,
+                size:152,
+                onStep:function(from,to,percent){
+                    $(this.el).find('.percent').text(Math.round(percent));
+                }
+            });
+        }
+    });
 });
 
