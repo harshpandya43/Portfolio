@@ -52,5 +52,7 @@ $(document).ready(function(){
             });
         }
     });
+
+    $(".counter").countup(200);
 });
 
